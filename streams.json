@@ -1,0 +1,37 @@
+{
+    "Doran": {
+        "url": "https://vod.sooplive.co.kr/player/153697285",
+        "live": false,
+        "platform": "sooplive"
+    },
+    "Oner": {
+        "url": "https://ch.sooplive.co.kr/ansguswns519",
+        "live": false,
+        "platform": "sooplive"
+    },
+    "Faker": {
+        "url": "https://ch.sooplive.co.kr/leesh2148",
+        "live": false,
+        "platform": "sooplive"
+    },
+    "Gumayusi": {
+        "url": "https://ch.sooplive.co.kr/rkalalsgud",
+        "live": false,
+        "platform": "sooplive"
+    },
+    "Keria": {
+        "url": "https://ch.sooplive.co.kr/fbalstjr1234",
+        "live": false,
+        "platform": "sooplive"
+    },
+    "Ruler": {
+        "url": "https://ch.sooplive.co.kr/pwh9811",
+        "live": false,
+        "platform": "sooplive"
+    },
+    "OTPlol_": {
+        "url": "https://www.twitch.tv/otplol_",
+        "live": true,
+        "platform": "twitch"
+    }
+}
