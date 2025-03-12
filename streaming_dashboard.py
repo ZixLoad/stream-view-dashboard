@@ -191,6 +191,23 @@ class StreamManagerApp(ctk.CTk):
             print(f"Erreur lors de la vérification Twitch : {e}")
             return False
 
+
+    def check_soop_live_status(self, url):
+        try:
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+            response = requests.get(url, headers=headers)
+
+            if response.status_code != 200:
+                return False
+
+            soup = BeautifulSoup(response.text, "html.parser")
+            page_text = soup.get_text().upper()
+
+            return any(keyword in page_text for keyword in LIVE_KEYWORDS)
+        except Exception as e:
+            print(f"Erreur SOOP : {e}")
+            return False
+        
     def update_all_statuses(self):
         """
         Met à jour les statuts live pour tous les flux.
@@ -201,8 +218,11 @@ class StreamManagerApp(ctk.CTk):
             if platform == "twitch":
                 streamer_name = info["url"].split("/")[-1]
                 self.streams[name]["live"] = self.check_twitch_live_status(streamer_name)
+            elif platform == "sooplive":
+                self.streams[name]["live"] = self.check_soop_live_status(info["url"])
             else:
                 self.streams[name]["live"] = False
+
 
         self.save_streams()
         self.refresh_streams()
